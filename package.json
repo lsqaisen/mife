@@ -1,23 +1,33 @@
 {
-  "name": "macaw-cli",
-  "version": "1.0.0",
-  "description": "我的cli",
-  "bin": {
-    "mife": "./bin/mife.js"
+  "name": "mife",
+  "version": "0.0.0",
+  "description": "mife",
+  "main": "./bin/index.js",
+  "directories": {
+    "lib": "lib"
   },
-  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsqaisen/mife.git"
+  },
+  "keywords": [
+    "mife",
+    "micro-frontend"
+  ],
+  "author": "lsqasien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lsqaisen/mife/issues"
+  },
+  "homepage": "https://github.com/lsqaisen/mife#readme",
   "devDependencies": {
-    "chalk": "^2.4.2",
-    "commander": "^2.19.0",
-    "download-git-repo": "^1.1.0",
-    "fs": "^0.0.1-security",
-    "glob": "^7.1.3",
-    "handlebars": "^4.1.0",
-    "inquirer": "^6.2.2",
-    "latest-version": "^4.0.0",
-    "log-symbols": "^2.2.0",
-    "metalsmith": "^2.3.0",
-    "ora": "^3.1.0",
-    "path": "^0.12.7"
+    "globby": "^9.0.0",
+    "webpack": "^4.29.3"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^4.6.0"
   }
 }
