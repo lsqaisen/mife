@@ -1,7 +1,7 @@
-import { join } from 'path';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+const { join } = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-export default (api, options = {}) => {
+exports.default = (api, options = {}) => {
   api.chainWebpackConfig(config => {
     // plugin
     config

@@ -1,11 +1,10 @@
-const _plugin = require('./plugin');
-const _portal = require('./portal');
+const _plguin = require('./plugin').default;
+const _portal = require('./portal').default;
 
-
-export default (api, options = {}) => {
+exports.default = (api, options) => {
   const { type = 'plguin', ...opts } = options;
   if (type === 'plugin') {
-    _plugin(api, opts)
+    _plguin(api, opts)
   } else {
     _portal(api, opts)
   }

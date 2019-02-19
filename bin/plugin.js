@@ -1,9 +1,13 @@
-import assert from 'assert';
-import { join, relative } from 'path';
-import globby from 'globby';
-import webpack from 'webpack';
+const assert = require('assert');
+const { join, relative } = require('path');
+const globby = require('globby');
+const webpack = require('webpack');
 
-export default (api, options = {}) => {
+// exports.default = {
+
+// }
+
+exports.default = (api, options = {}) => {
   const { dynamicImport = false, publicPath = `/lib/`, externals = {} } = options;
   const { cwd, paths, winPath } = api;
   const isDev = process.env.NODE_ENV === 'development';
