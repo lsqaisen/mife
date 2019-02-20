@@ -3,11 +3,7 @@ const { join, relative } = require('path');
 const globby = require('globby');
 const webpack = require('webpack');
 
-// exports.default = {
-
-// }
-
-exports.default = (api, options = {}) => {
+module.exports.default = (api, options = {}) => {
   const { dynamicImport = false, publicPath = `/lib/`, externals = {} } = options;
   const { cwd, paths, winPath } = api;
   const isDev = process.env.NODE_ENV === 'development';
@@ -60,12 +56,12 @@ exports.default = (api, options = {}) => {
 import dynamic from 'umi/dynamic';
 
 window.g_umi = window.g_umi || {};
-window.g_umi.monorepo = window.g_umi.monorepo || [];
-window.g_umi.monorepo.push({
+window.g_umi.mife = window.g_umi.mife || {};
+window.g_umi.mife.${api.pkg.name} = {
   routes: ${routesContent},
   models: [${models.join(',')}],
-  menus: {name: '${api.pkg.name}', data: ${findMenus()}}
-});
+  menus: ${findMenus()}
+};
       `.trim()
   }
 

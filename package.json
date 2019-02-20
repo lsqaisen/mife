@@ -28,6 +28,7 @@
     "webpack": "^4.29.3"
   },
   "dependencies": {
-    "copy-webpack-plugin": "^4.6.0"
+    "copy-webpack-plugin": "^4.6.0",
+    "scriptjs": "^2.5.9"
   }
 }
