@@ -1,6 +1,6 @@
 {
   "name": "mife",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "mife",
   "main": "./bin/index.js",
   "directories": {
