@@ -40,7 +40,13 @@ module.exports.default = (api, options = {}) => {
       ...(globby.sync('**/models/**/*.js', {
         cwd: paths.absSrcPath,
       })),
+      ...(globby.sync('**/models/**/*.ts', {
+        cwd: paths.absSrcPath,
+      })),
       ...(globby.sync('**/model.js', {
+        cwd: paths.absSrcPath,
+      })),
+      ...(globby.sync('**/model.ts', {
         cwd: paths.absSrcPath,
       })),
     ];
@@ -48,7 +54,7 @@ module.exports.default = (api, options = {}) => {
   }
 
   function findMenus() {
-    return `require('../../menus.js').default`
+    return `require('../../menus').default`
   }
 
   function getContent(routesContent, models) {
