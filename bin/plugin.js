@@ -10,7 +10,7 @@ module.exports.default = (api, options = {}) => {
   if (isDev) return;
 
   assert(api.pkg.name, `package.json must contains a name property`);
-  function routesToJSON(routes) {
+  function routesToJSON(routes, path = '') {
     return JSON.stringify(routes, (key, value) => {
       switch (key) {
         case 'component':
@@ -21,7 +21,7 @@ module.exports.default = (api, options = {}) => {
           }
           return value;
         case 'path':
-          return `/${api.pkg.name}${value}`;
+          return `${path}${value}`;
         default:
           return value;
       }
@@ -78,12 +78,14 @@ window.g_umi.mife.${api.pkg.name} = {
   api.addPageWatcher(['./plugin']);
 
   api.onGenerateFiles(() => {
-    const globalLayoutRoutes = api.routes.find(({ component, path }) => component.includes("layouts") && path === "/");
+    const globalLayoutRoutes = api.routes
+      .find(({ component, path }) => component.includes("layouts") && path === "/").routes
+      .find(({ path }) => path === `/${api.pkg.name}`);
     let routesContent;
     if (!!globalLayoutRoutes) {
       routesContent = stripJSONQuotes(routesToJSON(globalLayoutRoutes.routes))
     } else {
-      routesContent = stripJSONQuotes(routesToJSON(api.routes))
+      routesContent = stripJSONQuotes(routesToJSON(api.routes, `/${api.pkg.name}`))
     }
     api.writeTmpFile('mifrontconfig.js', getContent(routesContent, findModels()));
   });
